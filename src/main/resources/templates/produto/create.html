@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Produto</title>
+</head>
+<body>
+	<h2>Criar produtos</h2>
+	<form method="post" action="/produto/create">
+		<select class="form-control" id="dropDownCategoria">
+    		<option value="0">selecione a categoria</option>
+    		<option th:each="categoria : ${categorias}" th:value="${categoria.getId()}" th:text="${categoria.getDescricao()}"></option>
+		</select>
+		<select class="form-control" id="dropDownFornecedor">
+    		<option value="0">select o fornecedor</option>
+    		<option th:each="fornecedor : ${fornecedores}" th:value="${fornecedor.getId()}" th:text="${fornecedor.getNome()}"></option>
+		</select>
+		<p>descricao <input type="text" name="descricao" id="descricao"></p>
+		<p>Preço <input type="number" name="preco" id="preco"></p>		
+		<input type="submit" value="Salvar">
+	</form>
+</body>
+</html>
